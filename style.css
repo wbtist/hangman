@@ -66,6 +66,10 @@ body {
   background-color: var(--BUTTONS-BG-COLOR);
 }
 
+.hangman-image {
+  max-height: 40vh;
+}
+
 .hidden {
   visibility: hidden;
   /* display: none; */

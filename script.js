@@ -33,9 +33,12 @@ for (let i = 0; i < secretWord.length; i++) {
 // {Second phase}
 
 // DOM Selectros
+let life = 6;
 const DISPLAY_Secret_Word = document.querySelector('.display-secret-word-blanks-here');
+const DISPLAY_image = document.querySelector('.hangman-image');
+DISPLAY_image.src = `img/stage--${life}.png`
 
-let secretWord = 'palacsinta';
+let secretWord = 'kilimandzsaro';
 secretWord = secretWord.toUpperCase();
 
 let secretWord_ARRAY = [];
@@ -46,27 +49,52 @@ for (let eachLetter of secretWord) {
 };
 DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
 
-let life = 6;
-
 
 
 // Event Listener for button clicks
 let btns = document.querySelectorAll('button');
 
-for (let i of btns) {
-  i.addEventListener('click', userClickedAButton);
+for (let clickedButton of btns) {
+  clickedButton.addEventListener('click', () => {
+
+    const userGuess = clickedButton.textContent;
+
+    if (secretWord_ARRAY.includes(userGuess)) {
+      clickedButton.classList.add('hidden')
+      console.log('hide')
+    } else {
+      life--;
+      if (life == 0) {
+        DISPLAY_image.src = `img/stage--${life}.png`
+        alert('You Are DEAD');
+      } else {
+        DISPLAY_image.src = `img/stage--${life}.png`
+      }
+    }
+    secretWord_ARRAY.forEach(function (letter, index) {
+      if (userGuess == letter) {
+        blanks_ARRAY[index] = letter;
+      }
+    });
+
+    DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+  });
 };
 
-function userClickedAButton() {
-  const userGuess = this.textContent;
-  secretWord_ARRAY.forEach(function (letter, index) {
-    if (userGuess == letter) {
-      blanks_ARRAY[index] = letter;
 
-    };
-  })
-  DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
 
-};
+
+// function userClickedAButton() {
+//   const userGuess = this.textContent;
+//   this.classList.add('hidden');
+
+//   secretWord_ARRAY.forEach(function (letter, index) {
+//     if (userGuess == letter) {
+//       blanks_ARRAY[index] = letter;
+//     }
+//   });
+//   DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+
+// };
 
 
