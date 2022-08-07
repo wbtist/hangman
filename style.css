@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
+  /* colors (https://colorhunt.co/palette/f5e8c7deba9d9e77776f4c5b) */
+  --MAIN-BG: #6f4c5b;
+  --BRIGHTER-MAIN-BG: #9e7777;
+  --MAIN-TEXT-COLOR: #f5e8c7;
+  --BUTTONS-BG-COLOR: #deba9d;
 }
 
 * {
@@ -12,4 +17,56 @@
 body {
   font-family: "Roboto";
   min-height: 100vh;
+  background-color: var(--MAIN-BG);
+}
+
+.display-secret-word-blanks-here {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vw;
+  color: var(--MAIN-TEXT-COLOR);
+  font-size: 6vw;
+}
+
+.buttons-container {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0 6%;
+}
+
+.btn {
+  /* decoration */
+  /* all: unset; */
+  border: none;
+  cursor: pointer;
+  background-color: var(--BUTTONS-BG-COLOR);
+  color: var(--MAIN-BG);
+  font-size: 1rem;
+  min-width: 3rem;
+  min-height: 1.5rem;
+  border-radius: 15px;
+  margin: 0.3rem;
+  /* Flexbox */
+}
+
+.btn:focus {
+  cursor: pointer;
+  background-color: var(--BUTTONS-BG-COLOR);
+}
+
+.btn:hover {
+  /* all: unset; */
+  cursor: pointer;
+  background-color: var(--BUTTONS-BG-COLOR);
+}
+
+.hidden {
+  visibility: hidden;
+  /* display: none; */
 }

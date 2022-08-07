@@ -32,11 +32,41 @@ for (let i = 0; i < secretWord.length; i++) {
 
 // {Second phase}
 
+// DOM Selectros
+const DISPLAY_Secret_Word = document.querySelector('.display-secret-word-blanks-here');
+
+let secretWord = 'palacsinta';
+secretWord = secretWord.toUpperCase();
+
+let secretWord_ARRAY = [];
+let blanks_ARRAY = [];
+for (let eachLetter of secretWord) {
+  secretWord_ARRAY.push(eachLetter);
+  blanks_ARRAY.push('_ ');
+};
+DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+
+let life = 6;
 
 
 
+// Event Listener for button clicks
+let btns = document.querySelectorAll('button');
 
+for (let i of btns) {
+  i.addEventListener('click', userClickedAButton);
+};
 
+function userClickedAButton() {
+  const userGuess = this.textContent;
+  secretWord_ARRAY.forEach(function (letter, index) {
+    if (userGuess == letter) {
+      blanks_ARRAY[index] = letter;
 
+    };
+  })
+  DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+
+};
 
 
