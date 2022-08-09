@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Grechen+Fuemen&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lemonada&display=swap");
 
 :root {
   /* colors (https://colorhunt.co/palette/f5e8c7deba9d9e77776f4c5b) */
@@ -12,12 +14,47 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
+  color: var(--MAIN-TEXT-COLOR);
 }
 
 body {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 100vw;
   font-family: "Roboto";
   min-height: 100vh;
   background-color: var(--MAIN-BG);
+}
+
+h1 {
+  font-family: "Grechen Fuemen";
+  font-size: 10vw;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+h3 {
+  font-family: "Lemonada";
+}
+
+.secret-word-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hangman-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.hangman-image {
+  max-height: 30vh;
+  margin-top: 5vh;
 }
 
 .display-secret-word-blanks-here {
@@ -26,11 +63,12 @@ body {
   justify-content: center;
   margin-bottom: 2vw;
   color: var(--MAIN-TEXT-COLOR);
-  font-size: 6vw;
+  font-size: 2rem;
+  margin: 2vh auto;
 }
 
 .buttons-container {
-  min-width: 100vw;
+  max-width: 95vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,6 +76,17 @@ body {
   flex-wrap: wrap;
   gap: 0.8rem;
   padding: 0 6%;
+  box-shadow: 2.6px 1.6px 3.3px rgba(0, 0, 0, 0.034),
+    6.2px 3.8px 8px rgba(0, 0, 0, 0.048), 11.6px 7.1px 15px rgba(0, 0, 0, 0.06),
+    20.8px 12.7px 26.8px rgba(0, 0, 0, 0.072),
+    38.9px 23.8px 50.1px rgba(0, 0, 0, 0.086),
+    93px 57px 120px rgba(0, 0, 0, 0.12);
+
+  backdrop-filter: blur(10px) saturate(119%);
+  -webkit-backdrop-filter: blur(10px) saturate(119%);
+  background-color: rgba(17, 25, 40, 0.59);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .btn {
@@ -64,10 +113,6 @@ body {
   /* all: unset; */
   cursor: pointer;
   background-color: var(--BUTTONS-BG-COLOR);
-}
-
-.hangman-image {
-  max-height: 40vh;
 }
 
 .hidden {

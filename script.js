@@ -1,100 +1,78 @@
 'use strict';
 
-// {First phase} See README.md
-/*
-// Create a secretWord variable
-let secretWord = 'kelkaposzta';
-
-// Make an array containing every letter of the secret word
-const secretWordLettersArray = secretWord.split("");
-let blanksArray = [];
-
-// Make an array with '_'-s times the letters of the secret word characters.
-for (let i = 0; i < secretWord.length; i++) {
-  blanksArray.push('_');
-};
-
-// user guesses a letter
-let userGuess = 'a';
-
-// If usrGuess is in secretwordArray, change _ on the same position in blanksArray
-for (let i = 0; i < secretWord.length; i++) {
-  if (secretWordLettersArray[i] == userGuess) {
-    console.log('Good guess')
-    blanksArray[i] = userGuess;
-    console.log(blanksArray);
-  } else {
-    console.log('It is not a good guess.')
-  }
-};
-*/
-// END of {First phase}
-
 // {Second phase}
 
 // DOM Selectros
-let life = 6;
+
 const DISPLAY_Secret_Word = document.querySelector('.display-secret-word-blanks-here');
 const DISPLAY_image = document.querySelector('.hangman-image');
-DISPLAY_image.src = `img/stage--${life}.png`
+const alphabetButtons = document.querySelectorAll('button');
 
-let secretWord = 'kilimandzsaro';
-secretWord = secretWord.toUpperCase();
+// TODO: User can enter secrret word, or randomly generated from an array.
 
-let secretWord_ARRAY = [];
-let blanks_ARRAY = [];
-for (let eachLetter of secretWord) {
-  secretWord_ARRAY.push(eachLetter);
-  blanks_ARRAY.push('_ ');
+// main scope variables
+let life;
+let secretWord_ARRAY; // Necessary because I use array methods!!
+let blanks_ARRAY;
+let secretWord;
+
+// Set up Starting conditons
+function setDefaults() {
+  life = 6;
+  secretWord = 'kilimandzsaro';
+  secretWord = secretWord.toUpperCase();
+  console.log(secretWord[3]);
+  DISPLAY_image.src = `img/stage--6.png`;
+  secretWord_ARRAY = [];
+  blanks_ARRAY = []; // To display on the DOM
+  for (let eachLetter of secretWord) {
+    secretWord_ARRAY.push(eachLetter);
+    blanks_ARRAY.push('_ ');
+  };
+  DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+
 };
-DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+setDefaults();
+
+// Event Listener for letter button clicks
 
 
+// What happens if CLICK ON A LETTER BUTTON?
+for (let clickedButton of alphabetButtons) {
+  clickedButton.addEventListener('click', userClickedALetterButton)
+};
 
-// Event Listener for button clicks
-let btns = document.querySelectorAll('button');
 
-for (let clickedButton of btns) {
-  clickedButton.addEventListener('click', () => {
-
-    const userGuess = clickedButton.textContent;
-
-    if (secretWord_ARRAY.includes(userGuess)) {
-      clickedButton.classList.add('hidden')
-      console.log('hide')
-    } else {
-      life--;
-      if (life == 0) {
-        DISPLAY_image.src = `img/stage--${life}.png`
-        alert('You Are DEAD');
-      } else {
-        DISPLAY_image.src = `img/stage--${life}.png`
-      }
-    }
+function userClickedALetterButton() {
+  // get the letter as a string
+  let that = this;
+  const userGuess = that.textContent;
+  console.log(userGuess);
+  // Do this if player clicked a letter which is in the secret word
+  if (secretWord_ARRAY.includes(userGuess)) {
     secretWord_ARRAY.forEach(function (letter, index) {
       if (userGuess == letter) {
         blanks_ARRAY[index] = letter;
       }
     });
+  } else {
+    life--;
+    if (life != 0) {
+      //* This happens if Player still have life left:
+      // Display the correspondent life image
+      DISPLAY_image.src = `img/stage--${life}.png`;
+      //? As life decreasing change BG color, and display sad messages randomly
+    } else {
+      // remove letter button event listeners
+      for (let clickedButton of alphabetButtons) {
+        clickedButton.removeEventListener('click', userClickedALetterButton)
+      };
+      DISPLAY_image.src = `img/stage--${life}.png`
+    };
+  };
 
-    DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
-  });
+
+  DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
+  // hide the clicked letter
+  this.classList.add('hidden');
 };
-
-
-
-
-// function userClickedAButton() {
-//   const userGuess = this.textContent;
-//   this.classList.add('hidden');
-
-//   secretWord_ARRAY.forEach(function (letter, index) {
-//     if (userGuess == letter) {
-//       blanks_ARRAY[index] = letter;
-//     }
-//   });
-//   DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
-
-// };
-
-
