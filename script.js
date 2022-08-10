@@ -16,7 +16,7 @@ let words = 'abandonments,abandonwares,abbreviating,abbreviation,abbreviations,a
 
 let wordsArray = words.split(',');
 console.log(wordsArray[1111]);
-
+// Math.floor(Math.random() * (max - min) + min)
 // main scope variables
 let life;
 let secretWord_ARRAY; // Necessary because I use array methods!!
@@ -26,8 +26,10 @@ let secretWord;
 // Set up Starting conditons
 function setDefaults() {
   life = 6;
-  secretWord = 'kilimandzsaro';
+  const randomNumberForSecretWord = Math.floor(Math.random() * (wordsArray.length - 0) + 0);
+  secretWord = wordsArray[randomNumberForSecretWord];
   secretWord = secretWord.toUpperCase();
+  console.log(`${secretWord} is the current word`)
   DISPLAY_image.src = `img/stage--6.png`;
   secretWord_ARRAY = [];
   blanks_ARRAY = []; // To display on the DOM
