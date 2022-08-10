@@ -21,10 +21,21 @@
 body {
   padding-left: 5px;
   padding-right: 5px;
-  width: 100vw;
+  width: 100%;
   font-family: "Roboto";
   min-height: 100vh;
   background-color: var(--MAIN-BG);
+}
+
+section {
+  height: 100vh;
+  border: 3px dashed blue;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 h1 {
