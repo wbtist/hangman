@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Grechen+Fuemen&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Lemonada&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Rubik+Burned&display=swap");
 
 :root {
   /* colors (https://colorhunt.co/palette/f5e8c7deba9d9e77776f4c5b) */
-  --MAIN-BG: #6f4c5b;
-  --BRIGHTER-MAIN-BG: #9e7777;
-  --MAIN-TEXT-COLOR: #f5e8c7;
-  --BUTTONS-BG-COLOR: #deba9d;
+  --MAIN-BG: #100f0f;
+  --BRIGHTER-MAIN-BG: #0f3d3e;
+  --MAIN-TEXT-COLOR: #f1f1f1;
+  --BUTTONS-BG-COLOR: #e2dcc8;
 }
 
 * {
@@ -23,24 +24,29 @@ body {
   padding-right: 5px;
   width: 100%;
   font-family: "Roboto";
-  min-height: 100vh;
+  max-height: 100vh;
   background-color: var(--MAIN-BG);
 }
 
-section {
+.wrapper {
+  min-width: 100%;
   height: 100vh;
-  border: 3px dashed blue;
+}
+
+section {
+  height: auto;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  padding-bottom: 1%;
 }
 
 h1 {
-  font-family: "Grechen Fuemen";
-  font-size: 10vw;
+  font-family: "Rubik Burned";
+  font-size: 3rem;
 }
 
 h2 {
@@ -49,6 +55,10 @@ h2 {
 
 h3 {
   font-family: "Lemonada";
+}
+
+.message-1 {
+  font-size: 2rem;
 }
 
 .secret-word-container {
@@ -61,11 +71,16 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  /* min-height: 100%; */
 }
 
 .hangman-image {
+  position: inherit;
+  overflow: hidden;
+  width: auto;
   max-height: 30vh;
-  margin-top: 5vh;
+  margin-top: 2vh;
+  overflow: hidden;
 }
 
 .display-secret-word-blanks-here {
@@ -129,4 +144,17 @@ h3 {
 .hidden {
   visibility: hidden;
   /* display: none; */
+}
+
+.remove {
+  display: none;
+}
+
+.new-Game-Button {
+  padding: 1%;
+}
+
+.footer-system-message {
+  font-size: 0.6rem;
+  padding-bottom: 1%;
 }
