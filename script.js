@@ -1,7 +1,5 @@
 'use strict';
 
-// {Second phase}
-
 // DOM Selectros
 
 const DISPLAY_Secret_Word = document.querySelector('.display-secret-word-blanks-here');
@@ -12,12 +10,7 @@ const userMessageDOM_0 = document.querySelector('.message-0');
 const userMessageDOM_1 = document.querySelector('.message-1');
 const userMessageDOM_2 = document.querySelector('.message-2');
 
-
-// TODO: If user dies, show word and dictionary (https://dictionaryapi.dev/ ; https://en.wiktionary.org/wiki/vaporosities), or wiki the result)
 // TODO: Use switch statement and change page bacground as user lose lives.
-// ! Create a button to restart the game
-// TODO: If user win, prevent button clicks!
-// Change h1 font type. It is too fun like.
 
 // Math.floor(Math.random() * (max - min) + min)
 // main scope variables
@@ -44,6 +37,9 @@ function newGameButtonClicked() {
     alphabetButtons[i].classList.remove('hidden');
   };
   setDefaults();
+  for (let clickedButton of alphabetButtons) {
+    clickedButton.addEventListener('click', userClickedALetterButton)
+  };
 };
 
 // Set up Starting conditons
