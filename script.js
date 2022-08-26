@@ -58,6 +58,8 @@ function setDefaults() {
   DISPLAY_Secret_Word.textContent = blanks_ARRAY.join('');
   userMessageDOM_0.textContent = 'It looks like this is an easy word. Wait! I was wrong. Well, good luck anyway...';
   userMessageDOM_1.textContent = '';
+  // userMessageDOM_1.textContent = secretWord;
+  // console.log(secretWord);
   userMessageDOM_2.textContent = '';
 
 };
@@ -70,13 +72,17 @@ function userClickedALetterButton() {
   // Do this if player clicked a letter which is in the secret word:
   if (secretWord_ARRAY.includes(userGuess)) {
     secretWord_ARRAY.forEach(function (letter, index) {
+      if (blanks_ARRAY.includes('_ ') == false) {
+        // Player has won code goes here:
+        userMessageDOM_0.textContent = "Congratulations! You found the secret word";
+        userMessageDOM_2.innerHTML = `<a href="https://en.wiktionary.org/wiki/${secretWord}" target="_blank" rel="noopener noreferrer">Learn more</a> about this word`;
+        newGameButton.classList.remove('remove');
+      };
       if (userGuess == letter) {
         blanks_ARRAY[index] = letter;
       };
-      if (!blanks_ARRAY.includes('_')) {
-        // Player has won code goes here:
-      };
     });
+
   } else {
     life--;
     if (life != 0) {
