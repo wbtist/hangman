@@ -151,10 +151,14 @@ h3 {
 }
 
 .new-Game-Button {
-  padding: 1%;
+  padding: 0.5rem 1rem;
 }
 
 .footer-system-message {
   font-size: 0.6rem;
   padding-bottom: 1%;
+}
+
+.message-2 {
+  padding: 1rem 0;
 }
