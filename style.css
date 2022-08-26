@@ -45,20 +45,22 @@ footer {
 }
 
 h1 {
+  margin-bottom: 5%;
   font-family: "Rubik Burned";
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 h3 {
-  font-family: "Lemonada";
+  font-size: 1.5rem;
 }
 
-.message-1 {
-  font-size: 2rem;
+#game-section {
+  display: flex;
+  flex-direction: column;
 }
 
 .secret-word-container {
@@ -94,7 +96,7 @@ h3 {
 }
 
 .buttons-container {
-  max-width: 95vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -102,7 +104,7 @@ h3 {
   flex-wrap: wrap;
   gap: 0.8rem;
   padding: 0 6%;
-  box-shadow: 2.6px 1.6px 3.3px rgba(0, 0, 0, 0.034),
+  /* box-shadow: 2.6px 1.6px 3.3px rgba(0, 0, 0, 0.034),
     6.2px 3.8px 8px rgba(0, 0, 0, 0.048), 11.6px 7.1px 15px rgba(0, 0, 0, 0.06),
     20.8px 12.7px 26.8px rgba(0, 0, 0, 0.072),
     38.9px 23.8px 50.1px rgba(0, 0, 0, 0.086),
@@ -112,7 +114,7 @@ h3 {
   -webkit-backdrop-filter: blur(10px) saturate(119%);
   background-color: rgba(17, 25, 40, 0.59);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(255, 255, 255, 0.125); */
 }
 
 .btn {
