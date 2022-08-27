@@ -45,7 +45,7 @@ footer {
 }
 
 h1 {
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   font-family: "Rubik Burned";
   font-size: 4rem;
 }
@@ -56,6 +56,14 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
+}
+
+aside {
+  margin-bottom: 2%;
+}
+
+summary {
+  color: rgb(159, 172, 190);
 }
 
 #game-section {
